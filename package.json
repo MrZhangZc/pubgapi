@@ -1,0 +1,13 @@
+{
+  "name": "pubgapi",
+  "version": "1.0.0",
+  "description": "pubg api",
+  "main": "adp.js",
+  "repository": "git@github.com:MrZhangZc/pubgapi.git",
+  "author": "zzc",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2",
+  }
+}
