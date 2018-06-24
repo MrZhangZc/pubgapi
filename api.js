@@ -3,7 +3,7 @@ import api from './config'
 
 const pubgkey = api.apiKey
 
-export default class pApi {
+export default class pubgApi {
     constructor() {
         this.api_endpoint = "https://api.playbattlegrounds.com";
         this.api_key = pubgkey;
@@ -23,23 +23,24 @@ export default class pApi {
             console.error(error)
         }
     }
+
     async getCurrentSeason(region) {
-        const url = `${this.api_endpoint}/shards/pc-as/seasons`
+        const url = `${this.api_endpoint}/shards/${region}/seasons`
         return this.request({ url: url })
     }
 
-    async getPlayersInfo(nickname) {
-        const url = `${this.api_endpoint}/shards/pc-as/players?filter[playerNames]=${nickname}`
+    async getPlayersInfo(region,nickname) {
+        const url = `${this.api_endpoint}/shards/${region}/players?filter[playerNames]=${nickname}`
         return this.request({ url: url })
     }
 
-    async getPlayerbyId(id){
-        const url = `${this.api_endpoint}/shards/pc-as/players/${id}`
+    async getPlayerbyId(region, id) {
+        const url = `${this.api_endpoint}/shards/${region}/players/${id}`
         return this.request({ url: url })
     }
 
-    async getPlayerStats(id){
-        const url = `${this.api_endpoint}/shards/pc-as/players/${id}/seasons/division.bro.official.2018-06`
+    async getPlayerStats(region, id) {
+        const url = `${this.api_endpoint}/shards/${region}/players/${id}/seasons/division.bro.official.2018-06`
         return this.request({ url: url })
     }
 }
